@@ -1,53 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perencanaan Pembelajaran Bertahap</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .grid-table { 
-            display: grid; 
-            grid-template-columns: max-content auto; 
-            gap: 0.25rem 0.5rem; 
-        }
-        .grid-table strong { grid-column: 1; }
-        .grid-table span { grid-column: 2; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-    </style>
-    <!-- STEP 1: Tambahkan Babel untuk menerjemahkan JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perencanaan Pembelajaran Bertahap</title>
 
-    <!-- STEP 2: PERBAIKAN FINAL - Import Map yang Bersih dan Benar -->
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3",
-    "@google/genai": "https://esm.sh/@google/genai@0.14.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/"
-  }
-}
-</script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Google Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Babel untuk JSX (bukan TypeScript) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- React dan ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .grid-table {
+      display: grid;
+      grid-template-columns: max-content auto;
+      gap: 0.25rem 0.5rem;
+    }
+    .grid-table strong { grid-column: 1; }
+    .grid-table span { grid-column: 2; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-sky-50 to-purple-50">
-    <div id="root"></div>
-    <!-- STEP 3: Ubah tipe script agar diproses oleh Babel -->
-    <script type="text/babel" data-type="module" src="/index.tsx"></script>
+<body class="bg-gradient-to-br from-sky-50 to-purple-50 min-h-screen flex items-center justify-center p-8">
+  <div id="root"></div>
+
+  <!-- JSX Langsung via Babel -->
+  <script type="text/babel">
+    const App = () => {
+      return (
+        <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-xl animate-fade-in">
+          <h1 className="text-2xl font-bold text-purple-700 mb-4">Perencanaan Pembelajaran Bertahap</h1>
+          <div className="grid-table text-gray-700 text-lg">
+            <strong>Langkah 1:</strong><span>Menentukan Tujuan Pembelajaran</span>
+            <strong>Langkah 2:</strong><span>Menganalisis Kebutuhan Siswa</span>
+            <strong>Langkah 3:</strong><span>Menentukan Strategi dan Metode</span>
+            <strong>Langkah 4:</strong><span>Menyusun Materi dan Media</span>
+            <strong>Langkah 5:</strong><span>Melaksanakan Pembelajaran dan Refleksi</span>
+          </div>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
 </body>
 </html>
